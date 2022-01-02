@@ -1,0 +1,101 @@
+h1 {
+  text-align: left;
+  color: #ffaf40;
+}
+main {
+  overflow: hidden;
+}
+form {
+  display: flex;
+  gap: 1.5vw;
+}
+form input {
+  flex: 3;
+  margin: 0;
+}
+#call {
+  display: flex;
+  flex-wrap: wrap;
+  transform: translateX(-100vw);
+  transition: 0.5s;
+  opacity: 0;
+  text-align: center;
+}
+#call div {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2vh 1vw;
+  border: 3px solid gainsboro;
+  border-radius: 5px;
+}
+
+#myStream {
+  width: 50%;
+}
+#peerStream {
+  width: 50%;
+  transform: translateX(200vw);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+video {
+  width: 100%;
+  height: auto;
+  background-color: black;
+}
+@media screen and (max-width: 1200px) {
+  #myStream {
+    width: 100%;
+  }
+  #peerStream {
+    width: 100%;
+  }
+}
+#peerStream select,
+#peerStream button {
+  opacity: 0;
+}
+#chat {
+  width: 100%;
+  transform: translateY(200vh);
+  transition: 0.5s;
+}
+#chat ul {
+  border: 3px solid gainsboro;
+  border-radius: 5px;
+  height: 20vh;
+  overflow-y: scroll;
+  list-style: none;
+  padding: 3vh 2vw;
+}
+#chat ul li {
+  height: 5vh;
+}
+#chat ul li span {
+  position: relative;
+  padding: 1vh 2vw;
+  border: 3px solid black;
+  font-weight: bold;
+}
+#chat ul li.myMsg {
+  text-align: left;
+  transform: rotate(-10deg);
+}
+#chat ul li.myMsg span {
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+  text-align: left;
+}
+#chat ul li.otherMsg {
+  text-align: right;
+  transform: rotate(10deg);
+}
+#chat ul li.otherMsg span {
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border-bottom-left-radius: 2vh;
+}
+:root {
+  --width-card-wide: 100%;
+}
