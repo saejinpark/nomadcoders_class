@@ -1,0 +1,57 @@
+:root {
+  --width-card-wide: 100%;
+}
+h1 {
+  color: #ffaf40;
+  text-align: left;
+}
+form {
+  display: flex;
+  gap: 2vw;
+}
+form input {
+  flex: 3;
+  margin: 0;
+}
+#welcome ul {
+  list-style: none;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+#welcome ul li {
+  display: inline-block;
+  padding: 1vh 2vw;
+  border-radius: 1vh;
+  background-color: darkgoldenrod;
+  color: white;
+}
+#room ul {
+  height: 50vh;
+  border: 3px solid Gainsboro;
+  padding: 3vh 4vw;
+  overflow-y: scroll;
+  list-style: none;
+}
+#room ul li {
+  margin-bottom: 3vh;
+}
+#room ul li span {
+  font-weight: bold;
+  padding: 1vh 2vw;
+  height: 5vh;
+  border: 1px solid black;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 2vh;
+}
+#room ul li.other {
+  text-align: right;
+}
+
+#room ul li.other span {
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border-bottom-left-radius: 2vh;
+  border-bottom-right-radius: 0;
+}

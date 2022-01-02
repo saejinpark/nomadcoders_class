@@ -1,0 +1,22 @@
+:root {
+  --width-card-wide: 100%;
+}
+h1 {
+  color: #ffaf40;
+  text-align: left;
+}
+form {
+  display: flex;
+  gap: 2vw;
+}
+form input {
+  flex: 3;
+  margin: 0;
+}
+ul {
+  height: 50vh;
+  border: 3px solid Gainsboro;
+  padding: 3vh 4vw;
+  overflow-y: scroll;
+  list-style: none;
+}

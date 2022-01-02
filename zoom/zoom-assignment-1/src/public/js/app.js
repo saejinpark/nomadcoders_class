@@ -3,6 +3,9 @@ const nickForm = document.querySelector("#nick");
 const messageForm = document.querySelector("#message");
 const socket = new WebSocket(`wss://${window.location.host}`);
 
+messageList.hidden = true;
+messageForm.hidden = true;
+
 function makeMessage(type, payload) {
   const msg = { type, payload };
   return JSON.stringify(msg);
@@ -31,6 +34,9 @@ function handleMessageSubmit(event) {
 }
 function handleNickSubmit(event) {
   event.preventDefault();
+  nickForm.hidden = true;
+  messageList.hidden = false;
+  messageForm.hidden = false;
   const input = nickForm.querySelector("input");
   socket.send(makeMessage("nickname", input.value));
   input.value = "";
