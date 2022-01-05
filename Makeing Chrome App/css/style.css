@@ -1,3 +1,10 @@
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 main {
   align-items: flex-start;
   display: flex;
@@ -27,6 +34,12 @@ main {
   margin: 1vw;
 }
 @media screen and (max-width: 768px) {
+  body {
+    height: 200vh;
+  }
+  main {
+    height: 150%;
+  }
   #clock {
     width: 100%;
   }

@@ -23,9 +23,22 @@
   </head>
   <body class="d-flex h-100 text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <input type="radio" name="main-menu" id="Home-trigger" checked/>
+      <input type="radio" name="main-menu" id="Features-trigger" />
+      <input type="radio" name="main-menu" id="Contact-trigger" />
+      <header class="mb-auto">
+        <div>
+          <h1 class="float-md-start mb-0">My study supporter</h1>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link" href="#"><label for="Home-trigger">Mode 1</label></a>
+            <a class="nav-link" href="#"><label for="Features-trigger">Mode 2</label></a>
+            <a class="nav-link" href="#"><label for="Contact-trigger">Mode 3</label></a>
+          </nav>
+        </div>
+      </header>
 
       <main class="px-3">
-        <div id="clock" class="col-md-4">
+        <div id="clock" class="col-md-5">
           <h1>0000년 00월 00일 0요일</h2>
           <h2><span>am</span><span>00:00</span></h2>
           <input type="checkbox" name="DetailedTime" id="Detailed-trigger">
@@ -34,7 +47,7 @@
           <h3>00:00:00:000</h3>
         </div>
         <input type="checkbox" name="todolist-swap" id="todolist-swap-trigger">
-        <div class="col-md-2">
+        <div class="col-md-1">
 
         </div>
         <div id="Today" class="col-md-3">
@@ -52,6 +65,14 @@
           </ul>
         </div>
       </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>
+          Cover template for
+          <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>,
+          by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.
+        </p>
+      </footer>
     </div>
     <script src="./app.js"></script>
   </body>
