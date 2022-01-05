@@ -1,0 +1,123 @@
+main {
+  align-items: flex-start;
+  display: flex;
+  height: 80%;
+  flex-wrap: wrap;
+}
+#clock {
+  color: var(--bs-light);
+  font-family: arial;
+  height: 40%;
+  padding: 15px 20px;
+  border: 5px double;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: var(--bs-green);
+}
+#clock h1 {
+  font-size: calc(1rem + 0.5vw);
+}
+#clock h2 {
+  font-size: calc(2rem + 3vw);
+}
+#clock h2 span:nth-child(1) {
+  font-size: calc(1rem + 1vw);
+  margin: 1vw;
+}
+@media screen and (max-width: 768px) {
+  #clock {
+    width: 100%;
+  }
+  #Today,
+  #ToDo {
+    width: 50%;
+  }
+  #clock h1 {
+    font-size: calc(1rem + 0.5vw);
+  }
+  #clock h2 {
+    font-size: calc(2rem + 3vw);
+  }
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+#Detailed-trigger {
+  display: none;
+}
+#Detailed-trigger ~ #close-DetailedTime {
+  display: inline-block;
+}
+#Detailed-trigger ~ #open-DetailedTime {
+  display: none;
+}
+
+#Detailed-trigger:checked ~ h3 {
+  display: none;
+}
+#Detailed-trigger:checked ~ #close-DetailedTime {
+  display: none;
+}
+#Detailed-trigger:checked ~ #open-DetailedTime {
+  display: inline-block;
+}
+#clock h3 {
+  display: inline-block;
+}
+#Today,
+#ToDo {
+  height: 50%;
+}
+#Today h1,
+#ToDo h1 {
+  margin-top: 5%;
+  font-size: 1.5em;
+}
+#todolist-swap-trigger {
+  display: none;
+}
+#Today {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  transform-origin: 0% 0;
+  transition: transform 0.1s;
+  transform: translateY(10px) scale(1.2);
+  z-index: 1;
+  transition-delay: 0.1s;
+}
+#Today label,
+#ToDo label {
+  position: absolute;
+  top: -10%;
+}
+#Today label {
+  display: none;
+}
+#ToDo {
+  background-color: var(--bs-light);
+  color: var(--bs-dark);
+  transform-origin: 100% 0;
+  transform: scale(1.2);
+  transition: transform 0.1s;
+  transition-delay: 0s;
+  transform: scale(1);
+  z-index: 0;
+}
+#todolist-swap-trigger:checked ~ #Today {
+  transition-delay: 0s;
+  transform: scale(1);
+  z-index: 0;
+}
+#todolist-swap-trigger:checked ~ #ToDo {
+  transition-delay: 0.1s;
+  transform: translateY(10px) scale(1.2);
+  z-index: 1;
+}
+#todolist-swap-trigger:checked ~ #Today label {
+  display: inline-block;
+}
+#todolist-swap-trigger:checked ~ #ToDo label {
+  display: none;
+}

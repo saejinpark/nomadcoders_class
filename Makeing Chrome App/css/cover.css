@@ -1,0 +1,21 @@
+
+body {;
+  background-color: #ffd648;
+}
+
+
+input[name="main-menu"] {
+  display: none;
+}
+#Home-trigger:checked ~ .mb-auto div .nav-masthead .nav-link:nth-child(1) {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+#Features-trigger:checked ~ .mb-auto div .nav-masthead .nav-link:nth-child(2) {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+#Contact-trigger:checked ~ .mb-auto div .nav-masthead .nav-link:nth-child(3) {
+  color: #fff;
+  border-bottom-color: #fff;
+}
