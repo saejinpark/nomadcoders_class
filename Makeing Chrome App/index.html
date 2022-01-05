@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <title>todolist</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.1/examples/cover/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/cover.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="d-flex h-100 text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <main class="px-3">
+        <div id="clock" class="col-md-4">
+          <h1>0000년 00월 00일 0요일</h2>
+          <h2><span>am</span><span>00:00</span></h2>
+          <input type="checkbox" name="DetailedTime" id="Detailed-trigger">
+          <label id="close-DetailedTime"for="Detailed-trigger">Close Detailed Time</label>
+          <label id="open-DetailedTime" for="Detailed-trigger">Open Detailed Time</label>
+          <h3>00:00:00:000</h3>
+        </div>
+        <input type="checkbox" name="todolist-swap" id="todolist-swap-trigger">
+        <div class="col-md-2">
+
+        </div>
+        <div id="Today" class="col-md-3">
+          <label for="todolist-swap-trigger">🔗</label>
+          <h1>To day</h1>
+          <ul>
+
+          </ul>
+        </div>
+        <div id="ToDo" class="col-md-3">
+          <label for="todolist-swap-trigger">🔗</label>
+          <h1>To Do</h1>
+          <ul>
+
+          </ul>
+        </div>
+      </main>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
