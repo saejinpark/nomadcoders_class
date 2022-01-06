@@ -1,3 +1,6 @@
+html {
+  height: 200vh;
+}
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -6,21 +9,19 @@
   user-select: none;
 }
 main {
-  align-items: flex-start;
   display: flex;
+  align-items: baseline;
   height: 80%;
   flex-wrap: wrap;
 }
 #clock {
   color: var(--bs-light);
   font-family: arial;
-  height: 40%;
   padding: 15px 20px;
   border: 5px double;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   background-color: var(--bs-green);
 }
 #clock h1 {
@@ -34,12 +35,6 @@ main {
   margin: 1vw;
 }
 @media screen and (max-width: 768px) {
-  body {
-    height: 200vh;
-  }
-  main {
-    height: 150%;
-  }
   #clock {
     width: 100%;
   }
