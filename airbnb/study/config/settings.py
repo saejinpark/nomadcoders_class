@@ -27,7 +27,9 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "django_contries"
+]
 
 PROJECT_APPS = ["users.apps.UsersConfig"]
 
