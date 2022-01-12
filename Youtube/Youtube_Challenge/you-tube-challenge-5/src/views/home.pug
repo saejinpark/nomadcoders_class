@@ -1,0 +1,6 @@
+extends layouts
+include mixins/movie
+block content
+    ul
+      each moviesOf in movies
+        +movie(moviesOf)

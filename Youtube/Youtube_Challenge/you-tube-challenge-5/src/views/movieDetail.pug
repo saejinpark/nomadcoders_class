@@ -1,0 +1,19 @@
+doctype html
+html(lang="ko")
+    head
+    
+        title #{movie.title}| Detail
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    body
+        header 
+            h1 #{movie.title}
+            ul
+                each genre in movie.genres
+                    sup=genre
+        main
+            h2(style="text-transform: uppercase;") summary
+            p #{movie.summary}
+            h2(style="text-transform: uppercase;") description
+            p #{movie.description_full}
+            img(src=`${movie.background_image_original}`)
+    include partials/footer

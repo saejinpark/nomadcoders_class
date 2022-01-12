@@ -1,0 +1,18 @@
+doctype html
+html(lang="ko")
+    head
+    
+        title Movies!
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    body
+        header 
+            h1 Movies!
+        main
+            section
+                div
+                    form(action="/filter")
+                        input(name="year", placeholder="Filter by year", type="text") 
+                        input(name="rating", placeholder="Filter by rating", type="text") 
+                        input(value="Search", type="submit")
+                block content
+    include partials/footer
