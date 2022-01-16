@@ -11,7 +11,6 @@ def get_last_page():
     last_page = pages[-2].get_text(strip=True)
     return int(last_page)
 
-
 def extract_job(html):
     title = html.find("h2", {"class": "mb4"}).find("a")["title"]
     company, location = html.find("h3", {
