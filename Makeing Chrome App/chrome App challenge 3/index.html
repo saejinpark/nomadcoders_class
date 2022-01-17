@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number Game</title>
+  </head>
+  <body>
+    <h1>Random Number Game</h1>
+    <h2>
+      Generate a number between 0 and
+      <input type="number" name="machine" id="machine" min="1" value="1" />
+    </h2>
+    <p>
+      Guess the Number:
+      <input type="number" name="you" id="you" min="1" value="1" />
+      <button id="play">Play!</button>
+    </p>
+    <p id="answer"></p>
+    <span id="result"></span>
+    <script>
+      const button = document.getElementById("play");
+      button.addEventListener("click", () => {
+        const machine = document.getElementById("machine");
+        const you = document.getElementById("you");
+        const answer = document.getElementById("answer");
+        const result = document.getElementById("result");
+        let random_number = Math.floor(Math.random() * machine.value);
+        console.log(random_number);
+        console.log(you.value);
+        answer.innerText = `You chose: ${you.value}, the machine chose: ${random_number}`;
+        if(random_number == you.value){
+            result.innerText = "You Win!"
+        } else {
+            result.innerText = "You lose"
+        }
+      });
+    </script>
+  </body>
+</html>
