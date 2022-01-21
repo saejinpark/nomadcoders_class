@@ -1,0 +1,138 @@
+* {
+  font-family: arial;
+  color: #f7f1e3;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: #2c2c54;
+}
+header {
+  padding: 1vh 2vw;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-sizing: border-box;
+  z-index: 2;
+  width: 60%;
+  background-color: #474787;
+  border-radius: 1vh;
+}
+header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  color: #f7f1e3;
+  font-size: 2vw;
+  text-shadow: 0px 0px 5px #f7f1e3;
+}
+header form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px #2c2c54 inset;
+}
+header form input {
+  width: 100%;
+  text-align: center;
+  border: 0;
+  font-size: 3vh;
+  transition: font-size 0.3s;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+header form input::placeholder {
+  color: #f7f1e3;
+}
+header form input:focus {
+  outline: 0;
+  font-size: 5vh;
+  border: 0;
+}
+main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  z-index: 1;
+}
+main .main_inner {
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main .main_inner a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: outset 3px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+main .main_inner a:hover {
+  border: inset 3px;
+}
+main .main_inner a:nth-child(1) {
+  transform: translate(-250%, -100%);
+}
+main .main_inner a:nth-child(2) {
+  transform: translate(-120%, -100%);
+}
+main .main_inner a:nth-child(3) {
+  transform: translate(0%, -100%);
+}
+main .main_inner a:nth-child(4) {
+  transform: translate(120%, -100%);
+}
+main .main_inner a:nth-child(5) {
+  transform: translate(250%, -100%);
+}
+main .main_inner a:nth-child(6) {
+  transform: translate(-360%, 100%);
+}
+main .main_inner a:nth-child(7) {
+  transform: translate(-240%, 100%);
+}
+main .main_inner a:nth-child(8) {
+  transform: translate(-120%, 100%);
+}
+main .main_inner a:nth-child(9) {
+  transform: translate(0%, 100%);
+}
+main .main_inner a:nth-child(10) {
+  transform: translate(120%, 100%);
+}
+main .main_inner a:nth-child(11) {
+  transform: translate(240%, 100%);
+}
+main .main_inner a:nth-child(12) {
+  transform: translate(360%, 100%);
+}
+main .main_inner a:hover img {
+  transform: scale(0.95);
+}
+@media (max-width: 1400px){
+  header{
+    width: 80%;
+  }
+  header form input {
+    font-size: 1vh;
+  }
+  header form input:focus {
+    font-size: 2vh;
+  }
+}

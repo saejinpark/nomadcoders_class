@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job search</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/report.css') }}"
+    />
+  </head>
+  <body>
+    <input type="radio" name="swiper-trigger" id="swiper-trigger01" checked />
+    <input type="radio" name="swiper-trigger" id="swiper-trigger02" />
+    <input type="radio" name="swiper-trigger" id="swiper-trigger03" />
+    <header>
+      <h1>Search Resuls</h1>
+      <nav>
+        <label for="swiper-trigger01">stackoverflow</label>
+        <label for="swiper-trigger02">WWR</label>
+        <label for="swiper-trigger03">remote|ok</label>
+      </nav>
+    </header>
+    <main>
+      <section id="so">
+        <h3 id="so_title"> <a href="https://stackoverflow.com/">stackoverflow</a></h3>
+        <p>Found {{so_resultsNumber}} result for {{searchingBy}}</p>
+        <h4>Export to CSV</h4>
+        <a href="/so_export?word={{searchingBy}}"
+          >so {{searchingBy}} jobs.csv</a
+        >
+        <div class="inner">
+          <h4>no</h4>
+          <h4>Title</h4>
+          <h4>Company</h4>
+          <h4>Location</h4>
+          <h4>Link</h4>
+          {% for so_job in so_jobs %}
+          <span>{{so_job.no}}</span>
+          <span>{{so_job.title}}</span>
+          <span>{{so_job.company}}</span>
+          <span>{{so_job.location}}</span>
+          <a href="{{so_job.apply_link}}" target="_blank">Apply</a>
+          {% endfor %}
+        </div>
+      </section>
+      <section id="wwr">
+        <h3 id="wwt_title"><a href="https://weworkremotely.com/">WWR</a></h3>
+        <p>Found {{wwr_resultsNumber}} result for {{searchingBy}}</p>
+        <h4>Export to CSV</h4>
+        <div id="wwr_exports">
+          {% for key in wwr_jobs_keys %}
+          <a href="/wwr_export?word={{searchingBy}}&file={{key}}">
+            wwr {{searchingBy}} {{key}}.csv</a
+          >
+          {% endfor %}
+        </div>
+        <div class="inner">
+          <div>
+            <h4>category</h4>
+            <h4>no</h4>
+            <h4>company</h4>
+            <h4>title</h4>
+            <h4>date</h4>
+            <h4>time</h4>
+            <h4>local</h4>
+            <h4>link</h4>
+          </div>
+          {% for wwr_job in wwr_jobs %}
+          <div class="{{wwr_job.category}}">
+            <span>{{wwr_job.category}}</span>
+            <span>{{wwr_job.no}}</span>
+            <span>{{wwr_job.company}}</span>
+            <span>{{wwr_job.title}}</span>
+            <span>{{wwr_job.date}}</span>
+            <span>{{wwr_job.time}}</span>
+            <span>{{wwr_job.local}}</span>
+            <a href="{{wwr_job.url}}" target="_blank">Apply</a>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      <section id="remoteok">
+        <h3 id="remoteok_title"><a href="https://remoteok.io/">remote|ok</a></h3>
+        <p>Found {{remoteok_resultsNumber}} result for {{searchingBy}}</p>
+        <h4>Export to CSV</h4>
+        <a href="/remoteok_export?word={{searchingBy}}"
+          >remoteok {{searchingBy}} jobs.csv</a
+        >
+        <div class="inner">
+          <div>
+            <h4>no</h4>
+            <h4>name</h4>
+            <h4>title</h4>
+            <h4>tooltip</h4>
+            <h4>location</h4>
+            <h4>tags</h4>
+            <h4>time</h4>
+            <h4>link</h4>
+          </div>
+          {% for remoteok_job in remoteok_jobs %}
+          <div>
+            <span>{{remoteok_job.no}}</span>
+            <span>{{remoteok_job.name}}</span>
+            <span>{{remoteok_job.title}}</span>
+            <span>{{remoteok_job.tooltip}}</span>
+            <span>{{remoteok_job.location}}</span>
+            <span>{{remoteok_job.tags}}</span>
+            <span>{{remoteok_job.time}}</span>
+            <a href="{{remoteok_job.url}}" target="_blank">Apply</a>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
