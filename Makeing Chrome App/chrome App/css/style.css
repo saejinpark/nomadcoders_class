@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    box-sizing: border-box;
+    height: 10vh;
+    margin: 0;
+    padding: 0;
+    padding-top: 3vh;
+    background-color: burlywood;
+    text-align: center;
+}
+header #title {
+    margin: 0;
+    font-size: 1em;
+}
+main {
+    padding: 5vh 0;
+    background-color: blanchedalmond;
+    height: 80vh;
+    box-sizing: border-box;
+}
+main #weather {
+    height: 10vh;
+    text-align: center;
+}
+main #weather h1 {
+    margin: 0;
+}
+main #date {
+    height: 10vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+main #date h1,
+main #date h2,
+main #date h3 {
+    font-size: 1em;
+    margin: 0;
+}
+main #todolist {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    width: 100%;
+}
+main #todolist div {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+main #todolist div ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 70%;
+    border: 1px solid red;
+}
+
+footer {
+    height: 10vh;
+    background-color: cadetblue;
+}
