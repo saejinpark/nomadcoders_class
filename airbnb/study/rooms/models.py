@@ -4,7 +4,8 @@ from core import models as core_models
 
 
 class AbstractItem(core_models.TimeStampedModel):
-    """Abstract Item"""
+
+    """ Abstract Item """
 
     name = models.CharField(max_length=80)
 
@@ -17,42 +18,44 @@ class AbstractItem(core_models.TimeStampedModel):
 
 class RoomType(AbstractItem):
 
-    """RoomType Model Definition"""
+    """ RoomType Model Definition """
 
-    class Mete:
+    class Meta:
         verbose_name = "Room Type"
 
 
 class Amenity(AbstractItem):
 
-    """Amenity Model Definition"""
+    """ Amenity Model Definition """
 
-    class Mete:
+    class Meta:
         verbose_name_plural = "Amenities"
 
 
 class Facility(AbstractItem):
 
-    """Facility Model Definition"""
+    """ Facility Model Definition """
 
-    class Mete:
+    pass
+
+    class Meta:
         verbose_name_plural = "Facilities"
 
 
 class HouseRule(AbstractItem):
 
-    """HuseRule Model Definition"""
+    """ HouseRule Model Definition """
 
-    class Mete:
+    class Meta:
         verbose_name = "House Rule"
 
 
 class Photo(core_models.TimeStampedModel):
 
-    """Photo Model Definition"""
+    """ Photo Model Definition """
 
     caption = models.CharField(max_length=80)
-    file = models.ImageField()
+    file = models.ImageField(upload_to="room_photos")
     room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):
@@ -61,7 +64,7 @@ class Photo(core_models.TimeStampedModel):
 
 class Room(core_models.TimeStampedModel):
 
-    """Room Model Definition"""
+    """ Room Model Definition """
 
     name = models.CharField(max_length=140)
     description = models.TextField()
@@ -82,9 +85,16 @@ class Room(core_models.TimeStampedModel):
     room_type = models.ForeignKey(
         "RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True
     )
-    amenities = models.ManyToManyField("Amenity", blank=True)
-    facilities = models.ManyToManyField("Facility", blank=True)
-    house_rules = models.ManyToManyField("HouseRule", blank=True)
+    amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
+    facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
+    house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)
 
     def __str__(self):
         return self.name
+
+    def total_rating(self):
+        all_reviews = self.reviews.all()
+        all_ratings = 0
+        for review in all_reviews:
+            all_ratings += review.rating_average()
+        return all_ratings / len(all_reviews)
