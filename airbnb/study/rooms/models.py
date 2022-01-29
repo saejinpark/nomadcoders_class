@@ -5,7 +5,7 @@ from core import models as core_models
 
 class AbstractItem(core_models.TimeStampedModel):
 
-    """ Abstract Item """
+    """Abstract Item"""
 
     name = models.CharField(max_length=80)
 
@@ -18,7 +18,7 @@ class AbstractItem(core_models.TimeStampedModel):
 
 class RoomType(AbstractItem):
 
-    """ RoomType Model Definition """
+    """RoomType Model Definition"""
 
     class Meta:
         verbose_name = "Room Type"
@@ -26,7 +26,7 @@ class RoomType(AbstractItem):
 
 class Amenity(AbstractItem):
 
-    """ Amenity Model Definition """
+    """Amenity Model Definition"""
 
     class Meta:
         verbose_name_plural = "Amenities"
@@ -34,7 +34,7 @@ class Amenity(AbstractItem):
 
 class Facility(AbstractItem):
 
-    """ Facility Model Definition """
+    """Facility Model Definition"""
 
     pass
 
@@ -44,7 +44,7 @@ class Facility(AbstractItem):
 
 class HouseRule(AbstractItem):
 
-    """ HouseRule Model Definition """
+    """HouseRule Model Definition"""
 
     class Meta:
         verbose_name = "House Rule"
@@ -52,7 +52,7 @@ class HouseRule(AbstractItem):
 
 class Photo(core_models.TimeStampedModel):
 
-    """ Photo Model Definition """
+    """Photo Model Definition"""
 
     caption = models.CharField(max_length=80)
     file = models.ImageField(upload_to="room_photos")
@@ -64,7 +64,7 @@ class Photo(core_models.TimeStampedModel):
 
 class Room(core_models.TimeStampedModel):
 
-    """ Room Model Definition """
+    """Room Model Definition"""
 
     name = models.CharField(max_length=140)
     description = models.TextField()
@@ -91,6 +91,10 @@ class Room(core_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)
 
     def total_rating(self):
         all_reviews = self.reviews.all()
