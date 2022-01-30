@@ -1,13 +1,11 @@
 from django.contrib import admin
 from . import models
 
-# Register your models here.
-
 
 @admin.register(models.Reservation)
 class ReservationAdmin(admin.ModelAdmin):
 
-    """Reservatino Admin Definition"""
+    """ Reservation Admin Definition """
 
     list_display = (
         "room",
