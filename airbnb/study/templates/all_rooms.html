@@ -1,5 +1,3 @@
-<h1>popopo</h1>
-
-<h4>The time right now is: {{now}} </h4>
-
-<h5>I'm hungry {{hungry}}</h5>
+{% for room in rooms %}
+    <h1>{{room.name}} / ${{room.price}}<h1>
+{% endfor %}
