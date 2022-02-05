@@ -6,7 +6,7 @@ from . import models
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
 
-    """ Custom User Admin """
+    """Custom User Admin"""
 
     fieldsets = UserAdmin.fieldsets + (
         (
@@ -25,10 +25,9 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
-    list_filter = UserAdmin.list_filter + (
-        "superhost",
-    )
-    
+
+    list_filter = UserAdmin.list_filter + ("superhost",)
+
     list_display = (
         "username",
         "first_name",
