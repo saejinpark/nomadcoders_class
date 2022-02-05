@@ -13,6 +13,7 @@ django-countries = "*"
 pillow = "*"
 django-seed = "*"
 psycopg2-binary = "*"
+django-dotenv = "*"
 
 [requires]
 python_version = "3.7"
