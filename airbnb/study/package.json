@@ -6,7 +6,8 @@
     "css": "gulp"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.0",
+    "@types/autoprefixer": "^10.2.0",
+    "autoprefixer": "^9.8.8",
     "gulp": "^4.0.2",
     "gulp-csso": "^3.0.1",
     "gulp-postcss": "^8.0.0",

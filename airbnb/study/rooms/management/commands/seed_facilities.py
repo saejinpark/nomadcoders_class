@@ -3,13 +3,15 @@ from rooms.models import Facility
 
 
 class Command(BaseCommand):
+
     help = "This command creates facilities"
 
-    # def add_arguments(self, parser):
-
-    #     parser.add_argument(
-    #         "--number", default=2, help="How many times do you want me to tell you that I love you?"
-    #     )
+    """ 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--times", help="How many times do you want me to tell you that I love you?"
+        )
+    """
 
     def handle(self, *args, **options):
         facilities = [
@@ -22,4 +24,4 @@ class Command(BaseCommand):
         ]
         for f in facilities:
             Facility.objects.create(name=f)
-        self.stdout.write(self.style.SUCCESS(f"{len(facilities)} Facility created!"))
+        self.stdout.write(self.style.SUCCESS(f"{len(facilities)} facilities created!"))

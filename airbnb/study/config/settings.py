@@ -14,17 +14,17 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "(aii%@6n0=7!e$p5+9qxdku7v-0fj@h5177tc!@pzy_(-q$9zg"
-
+SECRET_KEY = os.environ.get("DJANGO_SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".elasticbeanstalk.com", "localhost"]
 
 
 # Application definition
@@ -50,7 +50,7 @@ PROJECT_APPS = [
     "conversations.apps.ConversationsConfig",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -86,12 +87,26 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+if DEBUG is False:
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
     }
-}
+else:
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": os.environ.get("RDS_HOST"),
+            "NAME": os.environ.get("RDS_NAME"),
+            "USER": os.environ.get("RDS_USER"),
+            "PASSWORD": os.environ.get("RDS_PASSWORD"),
+            "PORT": "5432",
+        }
+    }
 
 
 # Password validation
@@ -126,17 +141,29 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 AUTH_USER_MODEL = "users.User"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 MEDIA_URL = "/media/"
 
-# Email Configuration
 
+# Email Configuration
 
 EMAIL_HOST = "smtp.mailgun.org"
 EMAIL_PORT = "587"
 EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
-EMAIL_FROM = "sexy-guy@sandbox1154549e7473485d8ff9fe3a205020c0.mailgun.org"
+EMAIL_FROM = "sexy-guy@sandbox2ba559537f904296851b8b1b0c8d7d24.mailgun.org"
+
+
+# Auth
+
+LOGIN_URL = "/users/login/"
+
+
+# Locale
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
