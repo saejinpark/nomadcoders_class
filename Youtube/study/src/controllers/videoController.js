@@ -29,7 +29,7 @@ export const postEdit = async (req, res) => {
   const { title, description, hashtags } = req.body;
   const video = await Video.findById(id);
   if (!video) {
-    return res.render("404", { pageTitle: "Video not find!" });
+    return res.status(404).render("404", { pageTitle: "Video not find!" });
   }
   await Video.findByIdAndUpdate(id, {
     title,
