@@ -21,12 +21,11 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 20000,
+      maxAge: 2000000,
     },
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
-
 app.use(localsMiddleware);
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
