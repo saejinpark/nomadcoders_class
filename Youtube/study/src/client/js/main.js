@@ -1,2 +1,2 @@
-import "../scss/styles.scss"
-console.log("hi! its working")
+import "regenerator-runtime";
+import "../scss/styles.scss";

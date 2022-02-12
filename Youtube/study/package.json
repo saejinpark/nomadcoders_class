@@ -28,6 +28,7 @@
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
     "webpack": "^5.68.0",
