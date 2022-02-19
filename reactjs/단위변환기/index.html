@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    function App() {
+      const [amount, setAmount] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => {
+        setAmount(0);
+      };
+      const onInverted = () => {
+        setInverted((current) => !current);
+        setAmount(0);
+      };
+      return (
+        <div>
+          <h1 className="hi">Super Converter</h1>
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={inverted ? amount * 60 : amount}
+              id="minutes"
+              type="number"
+              placeholder="Minutes"
+              onChange={onChange}
+              disabled={inverted === true}
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={inverted ? amount : Math.floor(amount / 60)}
+              id="hours"
+              placeholder="Hours"
+              onChange={onChange}
+              type="number"
+              disabled={inverted === false}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onInverted}>Filp</button>
+        </div>
+      );
+    }
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
